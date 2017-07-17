@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">NetSpeedTest</string>
+    <string name="title_normalspeed">测速</string>
+    <string name="title_appsclear">统计</string>
+    <string name="title_nowspeed">设置</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: WebSpeedType -->
+    <string name="speed_web_1">腾讯：</string>
+    <string name="speed_web_2">百度：</string>
+    <string name="speed_web_3">苹果：</string>
+    <string name="speed_web_4">谷歌：</string>
+    <string name="speed_web_self">指定网址：</string>
+    <string name="speed_web_hint">请输入您想测速的网址</string>
+    <string name="no_text_hint">请输入您想测速的网址</string>
+    <string name="err_text_hint">您输入的格式不正确，请按照http://www.qq.com的格式输入</string>
+    <!-- TODO: WebSpeedState -->
+    <string name="start_speed">开始检测</string>
+    <string name="no_speed">未检测</string>
+    <string name="on_speed">正在检测...</string>
+    <string name="error_speed">检测错误</string>
+    <!-- TODO: FloatState -->
+    <string name="float_switch">悬浮球</string>
+    <string name="notify_switch">通知栏</string>
+    <!-- TODO: notifyWord -->
+    <string name="notify_title">流量通知</string>
+    <string name="notify_rx">消耗流量:</string>
+
+    <string name="list_tx_hint">上传流量:</string>
+    <string name="list_rx_hint">下载流量:</string>
+</resources>

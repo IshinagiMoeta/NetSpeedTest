@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_normalspeed"
+        android:icon="@drawable/home_button"
+        android:title="@string/title_normalspeed" />
+
+    <item
+        android:id="@+id/navigation_appsclear"
+        android:icon="@drawable/menu_button"
+        android:title="@string/title_appsclear" />
+
+    <item
+        android:id="@+id/navigation_nowspeed"
+        android:icon="@drawable/setting_button"
+        android:title="@string/title_nowspeed" />
+</menu>
