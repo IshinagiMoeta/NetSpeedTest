@@ -17,8 +17,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
 import com.whitesharkapps.netspeedtest.R;
 import com.whitesharkapps.netspeedtest.adapter.AppAdapter;
 import com.whitesharkapps.netspeedtest.info.AppInfo;
@@ -74,7 +77,6 @@ public class ClearFragment extends Fragment {
         mHandler.postDelayed(mRunnable,0);
         appAdapter = new AppAdapter(list, getContext());
         listView.setAdapter(appAdapter);
-
     }
 
     @Override

@@ -81,7 +81,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:src="@mipmap/tenxun_icon"
+                android:src="@mipmap/guge_icon"
                 android:text="@string/speed_web_1"/>
 
             <ImageView
@@ -90,7 +90,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:src="@mipmap/baidu_icon"
+                android:src="@mipmap/pingguo_icon"
                 android:text="@string/speed_web_2"/>
 
             <ImageView
@@ -99,7 +99,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:src="@mipmap/pingguo_icon"
+                android:src="@mipmap/xinlang_icon"
                 android:text="@string/speed_web_3"/>
 
             <ImageView
@@ -108,7 +108,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:src="@mipmap/guge_icon"
+                android:src="@mipmap/tenxun_icon"
                 android:text="@string/speed_web_4"/>
         </LinearLayout>
 
@@ -187,5 +187,12 @@
                 android:text="@string/no_speed"/>
         </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:id="@+id/banner_normal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"/>
 
 </LinearLayout>

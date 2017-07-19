@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -56,7 +57,7 @@ public class CommonViewHolder {
      */
     public static CommonViewHolder get(Context context, View convertView, ViewGroup parent, int layoutId, int position) {
         //如果为空  直接新建一个ViewHolder
-        if (convertView == null) {
+        if (convertView == null || "ad".equals(convertView.getTag())) {
             return new CommonViewHolder(context, parent, layoutId, position);
         } else {
             //否则返回一个已经存在的ViewHolder

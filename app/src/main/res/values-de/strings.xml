@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">NetSpeedTest</string>
-    <string name="title_normalspeed">SpeedTest</string>
-    <string name="title_appsclear">TrafficCounter</string>
-    <string name="title_nowspeed">Setting</string>
+    <string name="app_name">Netto-Geschwindigkeitstest</string>
+    <string name="title_normalspeed">Geschwindigkeitstest</string>
+    <string name="title_appsclear">Verkehrsschalter</string>
+    <string name="title_nowspeed">Rahmen</string>
     <!-- TODO: WebSpeedType -->
     <string name="speed_web_1">Google：</string>
     <string name="speed_web_2">Apple：</string>
     <string name="speed_web_3">Sina：</string>
     <string name="speed_web_4">Tencent：</string>
     <string name="speed_web_self">URL：</string>
-    <string name="speed_web_hint">Please input you want to speed url</string>
-    <string name="no_text_hint">Please input you want to speed url</string>
-    <string name="err_text_hint">Format you entered is incorrect, please follow the format of the input at http://www.qq.com</string>
+    <string name="speed_web_hint">Bitte geben Sie an, um die URL zu beschleunigen</string>
+    <string name="no_text_hint">Bitte geben Sie an, um die URL zu beschleunigen</string>
+    <string name="err_text_hint">Format, das Sie eingegeben haben, ist falsch, bitte folgen Sie dem Format der Eingabe unter http://www.qq.com</string>
     <!-- TODO: WebSpeedState -->
     <string name="start_speed">Starting test</string>
     <string name="no_speed">Did not detect</string>
     <string name="on_speed">Is testing...</string>
     <string name="error_speed">Detect errors</string>
     <!-- TODO: FloatState -->
-    <string name="float_switch">Floating ball</string>
-    <string name="notify_switch">Notification bar</string>
+    <string name="float_switch">Schwimmkugel</string>
+    <string name="notify_switch">Benachrichtigungsleiste</string>
     <!-- TODO: notifyWord -->
-    <string name="notify_title">Traffic notice</string>
-    <string name="notify_rx">Consumption Traffic:</string>
+    <string name="notify_title">Verkehrsnachricht</string>
+    <string name="notify_rx">Verbrauch Verkehr:</string>
 
-    <string name="list_tx_hint">Upload Traffic:</string>
-    <string name="list_rx_hint">Download Traffic:</string>
+    <string name="list_tx_hint">Traffic hochladen:</string>
+    <string name="list_rx_hint">Traffic herunterladen:</string>
     <!-- TODO: faceBook_Id -->
     <string name="fbId_Banner">125091148100916_125091791434185</string>
     <string name="fbId_Interstitial">125091148100916_125092148100816</string>

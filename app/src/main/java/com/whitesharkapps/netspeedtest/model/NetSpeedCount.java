@@ -36,10 +36,10 @@ public class NetSpeedCount {
         num = 0;
         this.handler = handler;
         this.urlMap = new HashMap<>();
-        this.urlMap.put("tv_q", "http://www.qq.com/");
-        this.urlMap.put("tv_baidu", "http://www.baidu.com/");
-        this.urlMap.put("tv_apple", "http://www.apple.com/");
-        this.urlMap.put("tv_google", "http://www.google.com.hk/");
+        this.urlMap.put("tv_q", "http://www.google.com/");
+        this.urlMap.put("tv_baidu", "http://www.apple.com/");
+        this.urlMap.put("tv_apple", "http://www.sina.com/");
+        this.urlMap.put("tv_google", "http://www.qq.com/");
 
         new MyThread().start();
 

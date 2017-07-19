@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">網速測試</string>
+    <string name="title_normalspeed">測速</string>
+    <string name="title_appsclear">統計</string>
+    <string name="title_nowspeed">設置</string>
+    <!-- TODO: WebSpeedType -->
+    <string name="speed_web_1">谷歌：</string>
+    <string name="speed_web_2">蘋果：</string>
+    <string name="speed_web_3">新浪：</string>
+    <string name="speed_web_4">騰訊：</string>
+    <string name="speed_web_self">網址：</string>
+    <string name="speed_web_hint">請輸入您想測速的網址</string>
+    <string name="no_text_hint">請輸入您想測速的網址。</string>
+    <string name="err_text_hint">網址格式不正確，請參考格式：http://www.qq.com</string>
+    <!-- TODO: WebSpeedState -->
+    <string name="start_speed">開始測速</string>
+    <string name="no_speed">未測速</string>
+    <string name="on_speed">正在測速...</string>
+    <string name="error_speed">測速失敗</string>
+    <!-- TODO: FloatState -->
+    <string name="float_switch">懸浮球</string>
+    <string name="notify_switch">通知欄</string>
+    <!-- TODO: notifyWord -->
+    <string name="notify_title">流量通知</string>
+    <string name="notify_rx">消耗流量:</string>
+
+    <string name="list_tx_hint">上傳流量:</string>
+    <string name="list_rx_hint">下載流量:</string>
+    <!-- TODO: faceBook_Id -->
+    <string name="fbId_Banner">125091148100916_125091791434185</string>
+    <string name="fbId_Interstitial">125091148100916_125092148100816</string>
+    <string name="fbId_Native_250">125091148100916_125092258100805</string>
+    <string name="fbId_Native_80">125091148100916_125091881434176</string>
+</resources>

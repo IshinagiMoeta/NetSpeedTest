@@ -1,7 +1,9 @@
 package com.whitesharkapps.netspeedtest.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.Fragment;
@@ -11,11 +13,26 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdChoicesView;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdListener;
+import com.facebook.ads.InterstitialAd;
+import com.facebook.ads.InterstitialAdListener;
+import com.facebook.ads.MediaView;
+import com.facebook.ads.NativeAd;
 import com.whitesharkapps.netspeedtest.R;
 import com.whitesharkapps.netspeedtest.fragment.ClearFragment;
 import com.whitesharkapps.netspeedtest.fragment.NormalFragment;
@@ -23,12 +40,17 @@ import com.whitesharkapps.netspeedtest.fragment.NowFragment;
 import com.whitesharkapps.netspeedtest.service.RTxBytes_Service;
 import com.whitesharkapps.netspeedtest.service.Traffic_Service;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RootActivity extends AppCompatActivity {
     private Fragment normalFragment;
     private Fragment clearFragment ;
     private Fragment nowFragment;
+    private InterstitialAd interstitialAd;
+    private int adNum = 0;
+
 
     private FragmentManager manager = getSupportFragmentManager();
     private Fragment mContent = new Fragment();
@@ -46,13 +68,17 @@ public class RootActivity extends AppCompatActivity {
         }
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
             FragmentTransaction transaction = manager.beginTransaction();
+            adNum++;
+            if (adNum%7==0){
+                showInterstitialAd();
+            }
+
             switch (item.getItemId()) {
                 case R.id.navigation_normalspeed:
                     switchContent(mContent,normalFragment);
@@ -87,7 +113,6 @@ public class RootActivity extends AppCompatActivity {
             window.setStatusBarColor(getResources().getColor(R.color.home_bottom_checked));
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
-
         setContentView(R.layout.activity_root);
 
         normalFragment = new NormalFragment();
@@ -117,7 +142,60 @@ public class RootActivity extends AppCompatActivity {
         Intent intent2 = new Intent(RootActivity.this,Traffic_Service.class);
         startService(intent2);
 
+
     }
+
+
+
+    public void showInterstitialAd(){
+        interstitialAd = new InterstitialAd(this, getResources().getString(R.string.fbId_Interstitial));
+        interstitialAd.setAdListener(new InterstitialAdListener() {
+            @Override
+            public void onInterstitialDisplayed(Ad ad) {
+                // Interstitial displayed callback
+            }
+
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                // Interstitial dismissed callback
+            }
+
+            @Override
+            public void onError(Ad ad, AdError adError) {
+                // Ad error callback
+                Toast.makeText(RootActivity.this, "Error: " + adError.getErrorMessage(),
+                        Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onAdLoaded(Ad ad) {
+                // Show the ad when it's done loading.
+                interstitialAd.show();
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                // Ad clicked callback
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+                // Ad impression logged callback
+            }
+        });
+
+        // For auto play video ads, it's recommended to load the ad
+        // at least 30 seconds before it is shown
+        interstitialAd.loadAd();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (interstitialAd != null) {
+            interstitialAd.destroy();
+        }
+        super.onDestroy();
+    }
+
 
     @Override
     protected void onNewIntent(Intent intent) {

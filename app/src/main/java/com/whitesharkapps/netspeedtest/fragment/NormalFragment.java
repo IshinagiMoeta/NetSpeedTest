@@ -10,10 +10,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdSettings;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
+import com.facebook.ads.InterstitialAd;
+import com.facebook.ads.InterstitialAdListener;
 import com.whitesharkapps.netspeedtest.R;
+import com.whitesharkapps.netspeedtest.activity.RootActivity;
 import com.whitesharkapps.netspeedtest.model.NetSpeedCount;
 
 import java.util.regex.Matcher;
@@ -24,11 +33,14 @@ import java.util.regex.Pattern;
  */
 public class NormalFragment extends Fragment{
 
-    TextView[] views = new TextView[4];
-    Button speed_button;
-    EditText selfWeb;
-    TextView selfText;
-    int anInt = 0;
+    private TextView[] views = new TextView[4];
+    private Button speed_button;
+    private EditText selfWeb;
+    private TextView selfText;
+    private int anInt = 0;
+    private AdView adView;
+    private LinearLayout adContainer;
+    private InterstitialAd interstitialAd;
 
     public NormalFragment() {
         // Required empty public constructor
@@ -45,10 +57,20 @@ public class NormalFragment extends Fragment{
         views[2] = view.findViewById(R.id.speed_textview_3);
         views[3] = view.findViewById(R.id.speed_textview_4);
         speed_button = view.findViewById(R.id.speed_button);
+        selfWeb = view.findViewById(R.id.self_web_editText);
+        selfText = view.findViewById(R.id.self_speed_textView);
+        adContainer = view.findViewById(R.id.banner_normal);
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         speed_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                showInterstitialAd();
                 if (selfWeb.getText().length()!=0) {
                     if (isMobileNO(selfWeb.getText().toString())){
                         NetSpeedCount count = NetSpeedCount.getInstance();
@@ -72,8 +94,6 @@ public class NormalFragment extends Fragment{
                 speed_button.setEnabled(false);
             }
         });
-        selfWeb = view.findViewById(R.id.self_web_editText);
-        selfText = view.findViewById(R.id.self_speed_textView);
 
         selfWeb.setHint(R.string.speed_web_hint);
         selfWeb.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -82,7 +102,17 @@ public class NormalFragment extends Fragment{
                 selfWeb.setText("http://");
             }
         });
-        return view;
+
+        faceBookAd();
+    }
+
+    private void faceBookAd(){
+        adView = new AdView(getContext(),getResources().getString(R.string.fbId_Banner), AdSize.BANNER_HEIGHT_50);
+        // Find the Ad Container
+        // Add the ad view to your activity layout
+        adContainer.addView(adView);
+        // Request an ad
+        adView.loadAd();
     }
 
     public static boolean isMobileNO(String mobiles) {
@@ -125,6 +155,55 @@ public class NormalFragment extends Fragment{
         }
     }
 
+    public void showInterstitialAd(){
+        interstitialAd = new InterstitialAd(getContext(), getContext().getResources().getString(R.string.fbId_Interstitial));
+        interstitialAd.setAdListener(new InterstitialAdListener() {
+            @Override
+            public void onInterstitialDisplayed(Ad ad) {
+                // Interstitial displayed callback
+            }
 
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                // Interstitial dismissed callback
+            }
 
+            @Override
+            public void onError(Ad ad, AdError adError) {
+                // Ad error callback
+                Toast.makeText(getContext(), "Error: " + adError.getErrorMessage(),
+                        Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onAdLoaded(Ad ad) {
+                // Show the ad when it's done loading.
+                interstitialAd.show();
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                // Ad clicked callback
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+                // Ad impression logged callback
+            }
+        });
+
+        // For auto play video ads, it's recommended to load the ad
+        // at least 30 seconds before it is shown
+        interstitialAd.loadAd();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        if (interstitialAd != null) {
+            interstitialAd.destroy();
+        }
+        super.onDestroy();
+    }
 }

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">NetSpeedTest</string>
-    <string name="title_normalspeed">SpeedTest</string>
-    <string name="title_appsclear">TrafficCounter</string>
-    <string name="title_nowspeed">Setting</string>
+    <string name="app_name">Тест скорости сети</string>
+    <string name="title_normalspeed">Тест скорости</string>
+    <string name="title_appsclear">Счетчик трафика</string>
+    <string name="title_nowspeed">настройка</string>
     <!-- TODO: WebSpeedType -->
     <string name="speed_web_1">Google：</string>
     <string name="speed_web_2">Apple：</string>
     <string name="speed_web_3">Sina：</string>
     <string name="speed_web_4">Tencent：</string>
     <string name="speed_web_self">URL：</string>
-    <string name="speed_web_hint">Please input you want to speed url</string>
-    <string name="no_text_hint">Please input you want to speed url</string>
-    <string name="err_text_hint">Format you entered is incorrect, please follow the format of the input at http://www.qq.com</string>
+    <string name="speed_web_hint">Пожалуйста, введите, что вы хотите скорректировать URL</string>
+    <string name="no_text_hint">Пожалуйста, введите, что вы хотите скорректировать URL</string>
+    <string name="err_text_hint">Введенный вами формат неверен, пожалуйста, следуйте формату ввода на странице http://www.qq.com</string>
     <!-- TODO: WebSpeedState -->
     <string name="start_speed">Starting test</string>
     <string name="no_speed">Did not detect</string>
     <string name="on_speed">Is testing...</string>
     <string name="error_speed">Detect errors</string>
     <!-- TODO: FloatState -->
-    <string name="float_switch">Floating ball</string>
-    <string name="notify_switch">Notification bar</string>
+    <string name="float_switch">Плавающий шар</string>
+    <string name="notify_switch">Панель уведомлений</string>
     <!-- TODO: notifyWord -->
     <string name="notify_title">Traffic notice</string>
     <string name="notify_rx">Consumption Traffic:</string>
